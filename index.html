@@ -3,10 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="refresh" content="0; url=Japan/">
-<title>Avinoshi Trips</title>
+<title>Avinoshi Trips — Family Travel Guides</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,500&family=Plus+Jakarta+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a2e;
+  --parchment: #f5f0e8;
+  --cream: #faf6ec;
+  --vermillion: #c0392b;
+  --vermillion-deep: #962d22;
+  --gold: #c89b3c;
+  --indigo: #2c3e6b;
+  --sakura: #e8a0b4;
+  --line: rgba(26,26,46,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  background: var(--parchment); color: var(--ink); line-height: 1.55;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(192,57,43,0.04), transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(44,62,107,0.04), transparent 50%);
+  min-height: 100vh;
+}
+
+.topbar {
+  background: var(--ink); color: var(--cream);
+  padding: 12px 24px; text-align: center;
+  font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+  border-bottom: 3px solid var(--vermillion);
+  font-weight: 600;
+}
+
+.container { max-width: 800px; margin: 0 auto; padding: 32px 24px; }
+
+.site-header { text-align: center; margin-bottom: 36px; padding-bottom: 24px; border-bottom: 2px solid var(--line); }
+.site-header h1 {
+  font-family: 'Fraunces', serif; font-weight: 600;
+  font-size: clamp(36px, 6vw, 54px); letter-spacing: -0.025em;
+  line-height: 1.0; color: var(--ink); margin-bottom: 10px;
+}
+.site-header .tagline {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 18px; color: var(--vermillion-deep);
+}
+.family-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: var(--ink); color: var(--cream);
+  padding: 6px 16px; border-radius: 100px; margin-top: 14px;
+  font-weight: 600;
+}
+
+/* Trip cards */
+.trip-grid { display: flex; flex-direction: column; gap: 20px; }
+
+.trip-card {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 20px; align-items: center;
+  background: var(--cream); border: 1px solid var(--line); border-radius: 8px;
+  padding: 24px; text-decoration: none; color: var(--ink);
+  box-shadow: 0 1px 3px rgba(26,26,46,0.06), 0 4px 12px rgba(26,26,46,0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border-left: 5px solid var(--vermillion);
+}
+.trip-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(26,26,46,0.1), 0 8px 24px rgba(26,26,46,0.08);
+}
+
+.trip-thumb {
+  width: 120px; height: 120px; border-radius: 6px; overflow: hidden;
+  flex-shrink: 0; background: var(--line);
+}
+.trip-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.trip-info h2 {
+  font-family: 'Fraunces', serif; font-weight: 600;
+  font-size: 24px; line-height: 1.15; margin-bottom: 4px;
+}
+.trip-subtitle {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 14px; color: var(--vermillion-deep); margin-bottom: 10px;
+}
+.trip-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.trip-meta .chip {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 100px; font-weight: 600;
+}
+.chip.country { background: var(--ink); color: white; }
+.chip.dates { background: var(--cream); border: 1px solid var(--line); color: var(--ink); }
+.chip.duration { background: var(--indigo); color: white; }
+.trip-desc { font-size: 14px; line-height: 1.5; opacity: 0.8; }
+
+.coming-soon {
+  text-align: center; padding: 40px 24px;
+  font-family: 'Fraunces', serif; font-style: italic;
+  color: var(--vermillion-deep); font-size: 16px; opacity: 0.6;
+}
+
+footer {
+  text-align: center; padding: 28px 24px; font-size: 12px;
+  color: rgba(26,26,46,0.5); border-top: 1px solid var(--line);
+  margin-top: 40px;
+}
+footer .mark {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 14px; margin-bottom: 4px; color: var(--vermillion-deep);
+}
+
+@media (max-width: 600px) {
+  .trip-card { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+  .trip-meta { justify-content: center; }
+}
+</style>
 </head>
 <body>
-<p>Redirecting to <a href="Japan/">Japan Trip</a>...</p>
+
+<div class="topbar">Munasinghe Family · Travel Guides</div>
+
+<div class="container">
+
+  <div class="site-header">
+    <h1>Avinoshi Trips</h1>
+    <div class="tagline">Family adventures around the world</div>
+    <div class="family-badge">👨‍👩‍👧‍👦 2 Adults + 3 Kids · NZ-Based</div>
+  </div>
+
+  <div class="trip-grid">
+
+    <a href="Japan/" class="trip-card">
+      <div class="trip-thumb">
+        <img src="Japan/images/japan-family-hero.jpg" alt="Japan family photo">
+      </div>
+      <div class="trip-info">
+        <h2>Japan Winter Adventure</h2>
+        <div class="trip-subtitle">Tokyo · Osaka · Kyoto</div>
+        <div class="trip-meta">
+          <span class="chip country">🇯🇵 Japan</span>
+          <span class="chip country">🇫🇯 Fiji</span>
+          <span class="chip duration">11 Days</span>
+          <span class="chip dates">28 Jan – 7 Feb 2025</span>
+        </div>
+        <div class="trip-desc">Theme parks, bullet trains, ancient temples, immersive digital art, and incredible food — all with 5 hand luggage bags, via Fiji Airways from New Zealand.</div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="coming-soon">More adventures coming soon...</div>
+
+</div>
+
+<footer>
+  <div class="mark">— Avinoshi Trips —</div>
+  <div>Munasinghe Family Travel Guides</div>
+</footer>
+
 </body>
 </html>
