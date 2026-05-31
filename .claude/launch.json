@@ -4,8 +4,8 @@
     {
       "name": "japan-trip",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8090", "--directory", "C:\\Source\\japanTrip"],
-      "port": 8090
+      "runtimeArgs": ["-m", "http.server", "8095", "--directory", "C:\\Source\\avinoshi_trips"],
+      "port": 8095
     }
   ]
 }
