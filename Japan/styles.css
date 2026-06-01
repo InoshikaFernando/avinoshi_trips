@@ -341,7 +341,148 @@ footer .mark {
 }
 
 /* ═══════════════════════════════════
-   Index page — Magazine cover
+   Magazine COVER (index hero)
+   ═══════════════════════════════════ */
+.cover {
+  position: relative;
+  min-height: 92vh;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 36px 48px;
+  overflow: hidden;
+  color: var(--cream);
+}
+.cover-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background-size: cover; background-position: center;
+}
+.cover-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(26,26,46,0.55) 0%, rgba(26,26,46,0.15) 35%, rgba(26,26,46,0.35) 70%, rgba(26,26,46,0.85) 100%);
+}
+.cover > * { position: relative; z-index: 1; }
+
+/* Cover top strip */
+.cover-top {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
+  border-bottom: 1px solid rgba(250,246,236,0.3);
+  padding-bottom: 14px;
+}
+.cover-top .issue { color: var(--gold); }
+
+/* Cover masthead */
+.cover-masthead { text-align: center; margin: auto 0; }
+.cover-kicker {
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  letter-spacing: 0.4em; text-transform: uppercase;
+  margin-bottom: 18px; color: var(--cream); opacity: 0.9;
+}
+.cover-masthead h1 {
+  font-family: 'Fraunces', serif; font-weight: 800;
+  font-size: clamp(64px, 16vw, 170px); line-height: 0.82;
+  letter-spacing: -0.04em; margin: 0;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+}
+.cover-masthead .cover-sub {
+  font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+  font-size: clamp(20px, 3.5vw, 30px); margin-top: 20px;
+  color: var(--cream); text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+}
+
+/* Cover lines (teasers) */
+.cover-lines {
+  display: flex; flex-direction: column; gap: 10px;
+  align-items: center; text-align: center;
+}
+.cover-line {
+  font-family: 'Fraunces', serif; font-size: clamp(16px, 2.5vw, 22px);
+  font-weight: 500; line-height: 1.3;
+  text-shadow: 0 2px 14px rgba(0,0,0,0.6);
+}
+.cover-line .accent { color: var(--gold); font-style: italic; }
+.cover-scroll {
+  margin-top: 28px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid rgba(250,246,236,0.5); border-radius: 100px;
+  padding: 10px 22px; color: var(--cream); text-decoration: none;
+  transition: all 0.2s; backdrop-filter: blur(4px);
+  background: rgba(26,26,46,0.2);
+}
+.cover-scroll:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+
+/* ═══════════════════════════════════
+   Section heading (editorial)
+   ═══════════════════════════════════ */
+.section-head { margin: 56px 0 28px; text-align: center; }
+.section-head .eyebrow {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--vermillion); font-weight: 600; margin-bottom: 12px;
+}
+.section-head h2 {
+  font-family: 'Fraunces', serif; font-weight: 800;
+  font-size: clamp(30px, 5vw, 46px); letter-spacing: -0.02em;
+  line-height: 1.0;
+}
+.section-head .lede {
+  font-family: 'Fraunces', serif; font-style: italic; font-weight: 400;
+  font-size: 18px; color: var(--vermillion-deep); margin-top: 12px;
+  max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.4;
+}
+
+/* ═══════════════════════════════════
+   City features (full-bleed editorial)
+   ═══════════════════════════════════ */
+.city-feature {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  margin-bottom: 32px; border-radius: var(--radius-lg);
+  overflow: hidden; box-shadow: var(--shadow-md);
+  background: var(--white); min-height: 340px;
+}
+.city-feature.flip { grid-template-columns: 1fr 1fr; }
+.city-feature.flip .city-img { order: 2; }
+.city-img {
+  background-size: cover; background-position: center;
+  min-height: 280px; position: relative;
+}
+.city-img .city-tag {
+  position: absolute; top: 18px; left: 18px;
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600;
+  background: var(--vermillion); color: white;
+  padding: 6px 14px; border-radius: 100px;
+}
+.city-body { padding: 36px 38px; display: flex; flex-direction: column; justify-content: center; }
+.city-body .city-jp {
+  font-family: 'Fraunces', serif; font-size: 15px;
+  color: var(--gold-deep); letter-spacing: 0.1em; margin-bottom: 6px;
+}
+.city-body h3 {
+  font-family: 'Fraunces', serif; font-weight: 800;
+  font-size: clamp(28px, 4vw, 40px); line-height: 1.0;
+  letter-spacing: -0.02em; margin-bottom: 16px;
+}
+.city-body p {
+  font-size: 15px; line-height: 1.7; font-weight: 300;
+  margin-bottom: 12px;
+}
+.city-body p:last-of-type { margin-bottom: 0; }
+.city-body .city-stats {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px;
+}
+.city-body .city-stats span {
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  font-weight: 600; background: var(--parchment);
+  padding: 6px 12px; border-radius: 6px; border: 1px solid var(--line);
+}
+
+/* ═══════════════════════════════════
+   Index page — Contents
    ═══════════════════════════════════ */
 .trip-header {
   text-align: center; margin-bottom: 44px;
@@ -424,6 +565,17 @@ footer .mark {
   .day-card .day-date { display: none; }
   .card { padding: 22px 20px; }
   .pull-quote { font-size: 18px; padding: 16px 20px; margin: 28px 0; }
+
+  /* Cover */
+  .cover { padding: 28px 22px 36px; min-height: 90vh; }
+  .cover-top { font-size: 9px; }
+  .cover-masthead .cover-sub { font-size: 18px; }
+
+  /* City features stack */
+  .city-feature, .city-feature.flip { grid-template-columns: 1fr; }
+  .city-feature.flip .city-img { order: 0; }
+  .city-img { min-height: 220px; }
+  .city-body { padding: 26px 24px; }
 }
 
 /* ═══════════════════════════════════
