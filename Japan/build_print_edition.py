@@ -11,7 +11,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageOps
 
 HERE = Path(__file__).parent
 ORDER = ["prepare.html"] + [f"day_{i:02d}.html" for i in range(1, 12)]
@@ -29,6 +29,9 @@ def build_print_images():
         if dst.exists() and dst.stat().st_mtime >= img.stat().st_mtime:
             continue
         with Image.open(img) as im:
+            # Apply EXIF orientation so pixels are physically upright —
+            # otherwise portrait phone photos come out rotated in the PDF.
+            im = ImageOps.exif_transpose(im)
             im = im.convert("RGB")
             im.thumbnail((MAX_EDGE, MAX_EDGE), Image.LANCZOS)
             im.save(dst, "JPEG", quality=82, optimize=True)
