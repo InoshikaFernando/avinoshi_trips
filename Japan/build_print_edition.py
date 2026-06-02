@@ -123,10 +123,14 @@ doc = f"""<!DOCTYPE html>
     min-height: 262mm; height: 262mm; border-radius: 0;
     margin: -14mm -12mm 0; padding: 24mm 20mm;
   }}
-  /* Keep visual blocks intact across page breaks */
-  .card, .photo-content, .city-feature, .excursion-item,
-  .pull-quote, .photo-slot, .photo-grid {{ break-inside: avoid; }}
+  /* Keep photos & tight blocks whole; let long text cards flow to fill pages
+     (prevents big empty gaps when a tall card won't fit the remaining space) */
+  .photo-content, .city-feature, .photo-slot, .photo-grid,
+  .excursion-item, .pull-quote, .food-card, .travel-card {{ break-inside: avoid; }}
   .section-head {{ break-after: avoid; }}
+  /* A label should never sit alone at the foot of a page */
+  .card-label {{ break-after: avoid; }}
+  .list-card li {{ break-inside: avoid; }}
   /* Tidy spacing for print */
   .container {{ max-width: 100%; padding: 0; }}
   .hero {{ padding-top: 0; }}
