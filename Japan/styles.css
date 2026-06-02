@@ -267,6 +267,26 @@ body > * { position: relative; z-index: 1; }
   border-radius: 0 var(--radius) var(--radius) 0;
 }
 
+/* ── Stat grid (by the numbers) ── */
+.stat-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+}
+.stat {
+  text-align: center; padding: 18px 12px;
+  background: var(--parchment); border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.stat .num {
+  font-family: 'Fraunces', serif; font-size: 34px; font-weight: 800;
+  color: var(--vermillion); line-height: 1; letter-spacing: -0.02em;
+}
+.stat .lbl {
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  opacity: 0.7; margin-top: 8px;
+}
+@media (max-width: 700px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+
 /* ── Excursion items ── */
 .excursion-item {
   display: grid; grid-template-columns: 40px 1fr;
