@@ -115,7 +115,7 @@ doc = f"""<!DOCTYPE html>
   * {{ -webkit-print-color-adjust: exact; print-color-adjust: exact; }}
   body {{ background: var(--parchment); }}
   body::before {{ opacity: 0.5; }}
-  /* Each section starts on a fresh page */
+  /* Each day starts on a fresh page */
   .pe-page {{ break-before: page; padding-top: 4mm; }}
   .pe-cover {{ break-after: page; }}
   /* Cover fills the first printed page */
@@ -123,14 +123,11 @@ doc = f"""<!DOCTYPE html>
     min-height: 262mm; height: 262mm; border-radius: 0;
     margin: -14mm -12mm 0; padding: 24mm 20mm;
   }}
-  /* Keep photos & tight blocks whole; let long text cards flow to fill pages
-     (prevents big empty gaps when a tall card won't fit the remaining space) */
+  /* Keep images, captions and list rows from splitting; let text cards flow */
   .photo-content, .city-feature, .photo-slot, .photo-grid,
-  .excursion-item, .pull-quote, .food-card, .travel-card {{ break-inside: avoid; }}
+  .excursion-item, .list-card li {{ break-inside: avoid; }}
+  .hero {{ break-inside: avoid; }}
   .section-head {{ break-after: avoid; }}
-  /* A label should never sit alone at the foot of a page */
-  .card-label {{ break-after: avoid; }}
-  .list-card li {{ break-inside: avoid; }}
   /* Tidy spacing for print */
   .container {{ max-width: 100%; padding: 0; }}
   .hero {{ padding-top: 0; }}
